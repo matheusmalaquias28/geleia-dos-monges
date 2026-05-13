@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+    max-width: 100%;
+  }
+  body {
+    @apply bg-cream text-espresso antialiased;
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: clip;
+    max-width: 100%;
+  }
+  #root {
+    overflow-x: clip;
+    max-width: 100%;
+    min-width: 0;
+  }
+  ::selection {
+    background-color: #721c37;
+    color: #F7F2E8;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F2E8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #721c37;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #721c37;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+  }
+  .nav-link-cream::after {
+    background: #F7F2E8;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden px-8 py-4 bg-burgundy-800 text-cream font-sans text-sm tracking-widest uppercase;
+  }
+  .btn-primary::before {
+    content: '';
+    @apply absolute inset-0 bg-burgundy-950 translate-y-full;
+    transition: transform 0.3s ease;
+  }
+  .btn-primary:hover::before {
+    transform: translateY(0);
+  }
+  .btn-primary span {
+    @apply relative z-10;
+  }
+
+  .btn-outline {
+    @apply relative overflow-hidden px-8 py-4 border border-burgundy-800 text-burgundy-800 font-sans text-sm tracking-widest uppercase;
+  }
+  .btn-outline::before {
+    content: '';
+    @apply absolute inset-0 bg-burgundy-800 translate-y-full;
+    transition: transform 0.3s ease;
+  }
+  .btn-outline:hover::before {
+    transform: translateY(0);
+  }
+  .btn-outline:hover {
+    @apply text-cream;
+  }
+  .btn-outline span {
+    @apply relative z-10;
+  }
+
+  .section-label {
+    @apply font-sans text-xs tracking-[0.3em] uppercase text-amber-warm font-medium;
+  }
+}
+
+@layer utilities {
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.025;
+    animation: grain 8s steps(10) infinite;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-2%, -3%); }
+    20% { transform: translate(3%, 2%); }
+    30% { transform: translate(-1%, 4%); }
+    40% { transform: translate(4%, -1%); }
+    50% { transform: translate(-3%, 3%); }
+    60% { transform: translate(2%, -4%); }
+    70% { transform: translate(-4%, 1%); }
+    80% { transform: translate(1%, -2%); }
+    90% { transform: translate(-2%, 4%); }
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+  }
+
+  .text-gradient-gold {
+    color: #C8851A;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .grain-overlay {
+      animation: none;
+    }
+    .marquee-track {
+      animation: none;
+    }
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
