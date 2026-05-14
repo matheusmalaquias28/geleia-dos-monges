@@ -136,7 +136,6 @@ export const products: Product[] = [
     emoji: '🍇',
     color: '#6b2d5a',
     category: 'geleias',
-    featured: true,
     weight: '300g',
     description: 'Sofisticada e encorpada, com notas rústicas e adoçadas.',
     details: 'O figo é uma das frutas mais nobres. Nossa geleia é perfeita para tabuas de frios e queijos.',

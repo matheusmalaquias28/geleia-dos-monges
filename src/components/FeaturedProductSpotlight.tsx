@@ -5,7 +5,6 @@ const featuredProductImages: Record<string, string> = {
   'geleia-morango': '/geleia-morango-monges.png',
   'geleia-amora': '/geleia-amora-monges.png',
   'geleia-framboesa': '/geleia-framboesa-monges.png',
-  'geleia-figo': '/geleia-21.png',
 };
 
 interface FeaturedProductSpotlightProps {
