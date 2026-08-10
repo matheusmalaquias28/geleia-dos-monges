@@ -8,7 +8,7 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 const timelineItems = [
   {
-    year: '1988',
+    year: '1983',
     title: 'O Início',
     text: 'A Fruitland nasce na Serra da Mantiqueira com atividades extremamente artesanais. O esmero e o capricho dão os primeiros caminhos. O cliente é o visitante de Campos do Jordão.',
   },
@@ -39,25 +39,6 @@ const timelineItems = [
   },
 ];
 
-const stats = [
-  { value: '35+', label: 'Anos de história' },
-  { value: '+11', label: 'Sabores de geleia' },
-  { value: '3', label: 'Países de exportação' },
-  { value: '5', label: 'Linhas de produto' },
-] as const;
-
-const statContainer = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.12 },
-  },
-};
-
-const statItem = {
-  hidden: { opacity: 0, y: 18 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
-};
-
 export default function AboutPage() {
   return (
     <>
@@ -78,7 +59,7 @@ export default function AboutPage() {
               transition={{ duration: 0.55, delay: 0.1, ease }}
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-cream/15 bg-cream/[0.06] px-4 py-2 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-cream/80 backdrop-blur-sm"
             >
-              Desde 1988
+              Desde 1983
             </motion.span>
 
             <motion.h1
@@ -96,7 +77,7 @@ export default function AboutPage() {
               transition={{ duration: 0.65, delay: 0.35, ease }}
               className="font-body mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/65 sm:text-xl"
             >
-              Nascemos em 1988 na Serra da Mantiqueira com um objetivo simples e poderoso: encantar pelo paladar.
+              Nascemos em 1983 na Serra da Mantiqueira com um objetivo simples e poderoso: encantar pelo paladar.
               Mais de 35 anos depois, esse compromisso continua vivo em cada pote.
             </motion.p>
 
@@ -145,39 +126,18 @@ export default function AboutPage() {
                 empresa reconhecida nacional e internacionalmente, sem perder a alma artesanal que a define.
               </p>
               <p>
-                Hoje, produzimos mais de 11 sabores de geleias, além de doces, conservas e compotas. Exportamos para
-                França, EUA e Argentina, e produzimos marca própria para os maiores hipermercados do Brasil.
+                Hoje, produzimos diversos sabores de geleias, além de doces e conservas. Produzimos marca própria
+                para os maiores hipermercados do Brasil.
               </p>
             </div>
-
-            <motion.div
-              variants={statContainer}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.35 }}
-              className="mt-10 flex flex-wrap gap-3"
-            >
-              {stats.map((stat) => (
-                <motion.div
-                  key={stat.label}
-                  variants={statItem}
-                  className="min-w-[7.5rem] flex-1 rounded-2xl border border-espresso/[0.08] bg-white/70 px-4 py-3 text-center shadow-sm backdrop-blur-sm sm:min-w-0 sm:flex-none sm:text-left"
-                >
-                  <div className="font-display text-2xl font-bold tabular-nums text-burgundy-800 sm:text-3xl">
-                    {stat.value}
-                  </div>
-                  <div className="font-sans text-[10px] uppercase tracking-[0.16em] text-espresso/45">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
           </AnimatedSection>
 
           <AnimatedSection direction="right" className="order-1 min-w-0 lg:order-2">
             <AboutImagePlaceholder
-              label="Serra da Mantiqueira"
-              caption="Espaço reservado para fotografia da região e da fábrica."
+              src="/historia-loja.png"
+              label="Nossa loja"
+              caption="O charme de Campos do Jordão e a Alma artesanal da Fruitland."
+              alt="Interior da loja Geleia dos Monges com prateleiras de geleias"
               aspect="aspect-[4/5] sm:aspect-[5/6]"
             />
           </AnimatedSection>
@@ -192,30 +152,36 @@ export default function AboutPage() {
               O lugar e o processo
             </h2>
             <p className="font-body mt-4 text-lg leading-relaxed text-espresso/65">
-              Três imagens para contar a origem, o cuidado e o resultado do trabalho artesanal.
+              Da fachada histórica ao cuidado em cada etapa da produção.
             </p>
           </AnimatedSection>
 
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
             <AnimatedSection delay={0.05} className="lg:col-span-7">
               <AboutImagePlaceholder
+                src="/historia-fachada.png"
                 label="Fachada histórica"
-                caption="Espaço reservado para a fachada da Fruitland em Campos do Jordão."
+                caption="A casa original da Geleia dos Monges em Campos do Jordão."
+                alt="Fachada histórica da Geleia dos Monges"
                 aspect="aspect-[16/10] lg:aspect-[16/9]"
               />
             </AnimatedSection>
             <div className="grid gap-6 lg:col-span-5">
               <AnimatedSection delay={0.1}>
                 <AboutImagePlaceholder
+                  src="/historia-producao.png"
                   label="Produção artesanal"
-                  caption="Espaço reservado para o preparo das geleias."
+                  caption="Tachos e o esmero de quem faz no próprio ritmo."
+                  alt="Produção artesanal de geleias em tachos industriais"
                   aspect="aspect-[4/3]"
                 />
               </AnimatedSection>
               <AnimatedSection delay={0.16}>
                 <AboutImagePlaceholder
-                  label="Seleção de frutas"
-                  caption="Espaço reservado para frutas da Mantiqueira."
+                  src="/historia-rotulagem.png"
+                  label="Cuidado em cada pote"
+                  caption="Rotulagem manual, o toque final do processo artesanal."
+                  alt="Equipe rotulando potes de geleia à mão"
                   aspect="aspect-[4/3]"
                 />
               </AnimatedSection>
@@ -271,13 +237,17 @@ export default function AboutPage() {
             <AnimatedSection direction="right" className="hidden lg:block">
               <div className="sticky top-28 space-y-6">
                 <AboutImagePlaceholder
+                  src="/historia-fachada.png"
                   label="Arquivo histórico"
-                  caption="Espaço reservado para fotografias da trajetória da empresa."
+                  caption="A origem da marca na Serra da Mantiqueira."
+                  alt="Fachada histórica da Geleia dos Monges"
                   aspect="aspect-[4/5]"
                 />
                 <AboutImagePlaceholder
+                  src="/historia-producao.png"
                   label="Linha de produção"
-                  caption="Espaço reservado para imagens do processo ao longo dos anos."
+                  caption="O processo artesanal que permanece até hoje."
+                  alt="Produção de geleias em tachos"
                   aspect="aspect-[16/10]"
                 />
               </div>
@@ -349,51 +319,6 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full bg-cream py-20 sm:py-24 lg:py-28">
-        <div className="mx-auto w-full max-w-[1600px] px-6 sm:px-8 lg:px-12 xl:px-16">
-          <AnimatedSection className="mx-auto mb-12 max-w-2xl text-center lg:mb-14">
-            <span className="section-label mb-3 inline-block">Presença global</span>
-            <h2 className="font-display text-3xl font-semibold tracking-tight text-espresso sm:text-5xl">
-              Sabores que cruzam fronteiras
-            </h2>
-            <p className="font-body mt-4 text-lg leading-relaxed text-espresso/65">
-              A qualidade dos produtos Monges foi reconhecida além das fronteiras brasileiras. Exportamos para três
-              países, levando o melhor da Serra da Mantiqueira ao paladar internacional.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection className="mb-12">
-            <AboutImagePlaceholder
-              label="Exportação internacional"
-              caption="Espaço reservado para imagens de mercados e parceiros no exterior."
-              aspect="aspect-[21/9] sm:aspect-[16/7]"
-            />
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 divide-y divide-espresso/[0.07] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {[
-              { country: 'França', flag: '🇫🇷', desc: 'Mercado gourmet europeu' },
-              { country: 'Estados Unidos', flag: '🇺🇸', desc: 'Comunidade brasileira e mercado especializado' },
-              { country: 'Argentina', flag: '🇦🇷', desc: 'Parceiro regional sul-americano' },
-            ].map((c, i) => (
-              <AnimatedSection key={c.country} delay={i * 0.08}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.35, ease }}
-                  className="flex flex-col gap-3 py-8 sm:px-10 first:sm:pl-0 last:sm:pr-0"
-                >
-                  <span className="text-4xl" aria-hidden>
-                    {c.flag}
-                  </span>
-                  <h3 className="font-display text-2xl font-semibold text-espresso sm:text-3xl">{c.country}</h3>
-                  <p className="font-body text-base leading-relaxed text-espresso/60">{c.desc}</p>
-                </motion.div>
               </AnimatedSection>
             ))}
           </div>

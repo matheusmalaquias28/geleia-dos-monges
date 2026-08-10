@@ -1,10 +1,11 @@
 export type ProductCategory =
   | 'geleias'
   | 'geleias-diet'
-  | 'doces'
+  | 'geleias-agridoces'
+  | 'mini-potes'
   | 'conservas'
-  | 'compotas'
-  | 'outros'
+  | 'doces'
+  | 'institucional'
   | 'marca-propria';
 
 export interface Product {
@@ -25,15 +26,17 @@ export const products: Product[] = [
   // GELEIAS
   {
     id: 'geleia-morango',
-    name: 'Geleia de Morango',
+    name: 'Geleia de Morango Artesanal com Pedaços de Fruta',
     emoji: '🍓',
     color: '#8c2240',
     category: 'geleias',
     featured: true,
     weight: '300g',
     image: '/geleia-morango-produto.png',
-    description: 'A clássica geleia de morango artesanal com pedaços da fruta.',
-    details: 'Produzida com morangos selecionados da Serra da Mantiqueira, esta geleia preserva o sabor fresco e natural da fruta. Perfeita para torradas, crepes e sobremesas.',
+    description:
+      'Com generosos pedaços de morango, oferece um equilíbrio perfeito entre doçura e acidez.',
+    details:
+      'Nossa clássica geleia de morango é preparada com frutas cuidadosamente selecionadas, preservando o sabor natural e a textura caseira. Com generosos pedaços de morango, oferece um equilíbrio perfeito entre doçura e acidez, proporcionando uma experiência única a cada colherada. Ideal para acompanhar pães, torradas, queijos, iogurtes, sobremesas e diversas receitas.',
   },
   {
     id: 'geleia-amora',
@@ -41,7 +44,6 @@ export const products: Product[] = [
     emoji: '🫐',
     color: '#4a1468',
     category: 'geleias',
-    featured: true,
     weight: '300g',
     image: '/geleia-amora-produto.png',
     description: 'Intensamente saborosa, feita com amoras frescas da região.',
@@ -53,7 +55,6 @@ export const products: Product[] = [
     emoji: '🫐',
     color: '#c41e5a',
     category: 'geleias',
-    featured: true,
     weight: '300g',
     image: '/geleia-framboesa-produto.png',
     description: 'Delicada e perfumada, com o melhor da framboesa.',
@@ -122,13 +123,17 @@ export const products: Product[] = [
   },
   {
     id: 'geleia-laranja',
-    name: 'Geleia de Laranja c/ Gengibre',
+    name: 'Geleia de Laranja com Pedaços de Casca',
     emoji: '🍊',
     color: '#e87820',
     category: 'geleias',
+    featured: true,
     weight: '300g',
-    description: 'A clássica marmelada com um toque picante e aromático.',
-    details: 'Laranja fresca com gengibre cria uma geleia complexa e memorável. Levemente picante, muito aromática.',
+    image: '/geleia-damasco-monges.png',
+    description:
+      'Sabor cítrico e refrescante com delicados pedaços de casca e um leve toque de amargor.',
+    details:
+      'Elaborada com laranjas de seleção, nossa geleia combina o sabor cítrico e refrescante da fruta com delicados pedaços de casca, que proporcionam uma textura marcante e um leve toque de amargor característico. Uma receita tradicional, equilibrada e cheia de personalidade.',
   },
   {
     id: 'geleia-figo',
@@ -171,17 +176,65 @@ export const products: Product[] = [
     description: 'Framboesa delicada e perfumada, versão sem açúcar.',
     details: 'A delicadeza da framboesa em versão saudável, sem açúcar convencional.',
   },
+  // GELEIAS AGRIDOCES
+  {
+    id: 'agridoces-pimenta',
+    name: 'Geleia Agridoce de Pimenta',
+    emoji: '🌶️',
+    color: '#c41e1e',
+    category: 'geleias-agridoces',
+    weight: '300g',
+    description: 'Doçura e picância em equilíbrio, ideal para carnes e queijos.',
+    details:
+      'Uma geleia agridoce com personalidade, perfeita para acompanhar tábuas de frios, carnes grelhadas e queijos maturados.',
+  },
+  {
+    id: 'agridoces-cebola',
+    name: 'Geleia Agridoce de Cebola',
+    emoji: '🧅',
+    color: '#8c5a2a',
+    category: 'geleias-agridoces',
+    weight: '300g',
+    description: 'Sabor profundo e caramelizado, com leve acidez.',
+    details:
+      'Cebolas selecionadas transformadas em uma geleia agridoce sofisticada, excelente com queijos e carnes.',
+  },
+  // MINI-POTES
+  {
+    id: 'mini-morango',
+    name: 'Mini-Pote Geleia de Morango',
+    emoji: '🍓',
+    color: '#8c2240',
+    category: 'mini-potes',
+    weight: '40g',
+    description: 'O clássico sabor de morango em formato prático e individual.',
+    details:
+      'Ideal para hotelaria, café da manhã, kits e degustação. Mesma qualidade artesanal em porção individual.',
+  },
+  {
+    id: 'mini-laranja',
+    name: 'Mini-Pote Geleia de Laranja',
+    emoji: '🍊',
+    color: '#e87820',
+    category: 'mini-potes',
+    weight: '40g',
+    description: 'Geleia de laranja em mini-pote, prática e versátil.',
+    details:
+      'Formato individual para serviço, hospitalidade e presentes. Sabor cítrico em porção compacta.',
+  },
   // DOCES
   {
-    id: 'doce-leite',
-    name: 'Doce de Leite Artesanal',
+    id: 'fondant-leite',
+    name: 'Fondant de Leite',
     emoji: '🍮',
     color: '#c8851a',
     category: 'doces',
     featured: true,
     weight: '400g',
-    description: 'Cremoso e irresistível, produzido de forma artesanal.',
-    details: 'Cozido lentamente em tacho de cobre, resultando em textura cremosa e sabor incomparável.',
+    description:
+      'Cremoso e delicado, com textura macia e sabor suave que derrete na boca.',
+    details:
+      'Cremoso, delicado e irresistível, o Fondant de Leite é preparado com ingredientes selecionados para oferecer uma textura macia e um sabor suave que derrete na boca. Versátil e sofisticado, é perfeito para rechear e decorar bolos, tortas, doces, cupcakes e sobremesas, além de poder ser apreciado puro por quem busca um toque especial de doçura.',
   },
   {
     id: 'doce-abobora',
@@ -205,12 +258,24 @@ export const products: Product[] = [
   },
   // CONSERVAS
   {
+    id: 'conserva-berinjela',
+    name: 'Conserva de Berinjela Siciliana',
+    emoji: '🍆',
+    color: '#6b2d5a',
+    category: 'conservas',
+    featured: true,
+    weight: '300g',
+    description:
+      'Textura macia e equilíbrio de aromas e especiarias, inspirada na tradição mediterrânea.',
+    details:
+      'Preparada com berinjelas cuidadosamente selecionadas e temperos que realçam seu sabor, nossa Berinjela Siciliana combina textura macia e um equilíbrio perfeito de aromas e especiarias. Uma receita inspirada na tradição mediterrânea, ideal para servir como antepasto, acompanhar pães, torradas, saladas, massas, carnes ou compor tábuas de frios e queijos.',
+  },
+  {
     id: 'conserva-pimenta',
     name: 'Pimenta em Conserva',
     emoji: '🌶️',
     color: '#c41e1e',
     category: 'conservas',
-    featured: true,
     weight: '250g',
     description: 'Pimentas selecionadas em azeite com ervas aromáticas.',
     details: 'Blend de pimentas coloridas conservadas em azeite com alecrim, tomilho e pimenta-preta.',
@@ -235,27 +300,16 @@ export const products: Product[] = [
     description: 'Tomates desidratados em azeite extra virgem.',
     details: 'Tomates desidratados lentamente e conservados em azeite extra virgem com alho e manjericão.',
   },
-  // COMPOTAS
+  // INSTITUCIONAL
   {
-    id: 'compota-figo',
-    name: 'Compota de Figo Inteiro',
-    emoji: '🍇',
-    color: '#6b2d5a',
-    category: 'compotas',
-    featured: true,
-    weight: '500g',
-    description: 'Figos inteiros em calda de açúcar, um clássico artesanal.',
-    details: 'Figos selecionados, mantidos inteiros e conservados em calda com especiarias.',
-  },
-  {
-    id: 'compota-pessego',
-    name: 'Compota de Pêssego',
-    emoji: '🍑',
-    color: '#e8783c',
-    category: 'compotas',
-    weight: '500g',
-    description: 'Metades de pêssego em calda leve e perfumada.',
-    details: 'Pêssegos no ponto perfeito de maturação em calda aromatizada com baunilha.',
+    id: 'institucional-foodservice',
+    name: 'Linha Institucional / Food Service',
+    emoji: '🏨',
+    color: '#2D5A1B',
+    category: 'institucional',
+    description: 'Soluções em geleias e doces para hotéis, restaurantes e catering.',
+    details:
+      'Linha pensada para o segmento institucional, com volumes e formatos adequados a hotéis, restaurantes, padarias e food service, mantendo o padrão artesanal da marca Monges.',
   },
   // MARCA PROPRIA
   {
@@ -270,21 +324,23 @@ export const products: Product[] = [
 ];
 
 export const categoryLabels: Record<ProductCategory, string> = {
-  'geleias': 'Geleias',
+  geleias: 'Geleias',
   'geleias-diet': 'Geleias Diet',
-  'doces': 'Doces',
-  'conservas': 'Conservas',
-  'compotas': 'Compotas',
-  'outros': 'Outros',
+  'geleias-agridoces': 'Geleias Agridoces',
+  'mini-potes': 'Mini-Potes',
+  conservas: 'Conservas',
+  doces: 'Doces',
+  institucional: 'Institucional',
   'marca-propria': 'Marca Própria',
 };
 
 export const categoryColors: Record<ProductCategory, string> = {
-  'geleias': '#721c37',
+  geleias: '#721c37',
   'geleias-diet': '#4a1468',
-  'doces': '#c8851a',
-  'conservas': '#c41e1e',
-  'compotas': '#6b2d5a',
-  'outros': '#2D5A1B',
+  'geleias-agridoces': '#9b5e0a',
+  'mini-potes': '#8c2240',
+  conservas: '#c41e1e',
+  doces: '#c8851a',
+  institucional: '#2D5A1B',
   'marca-propria': '#2D5A1B',
 };

@@ -10,7 +10,7 @@ Brazilian end consumers, primarily 30-60 years old, who care about food provenan
 
 ## Product Purpose
 
-Geleia dos Monges (Fruitland) has produced artisanal jams, sweets, and preserves in the Serra da Mantiqueira since 1988 at 1,600m altitude. The site exists to build brand trust, showcase the product range, communicate the origin story, and convert curious visitors into buyers or contacts. Success means a visitor leaves feeling the brand is worthy of their table.
+Geleia dos Monges (Fruitland) has produced artisanal jams, sweets, and preserves in the Serra da Mantiqueira since 1983 at 1,600m altitude. The site exists to build brand trust, showcase the product range, communicate the origin story, and convert curious visitors into buyers or contacts. Success means a visitor leaves feeling the brand is worthy of their table.
 
 ## Brand Personality
 
@@ -25,7 +25,7 @@ Warm, unhurried, trustworthy. The brand feels like a family recipe handed down w
 ## Design Principles
 
 1. Origin is the product. Campos do Jordao, the altitude, the mountain air: these are not decoration, they are the reason the product is good. Lead with place.
-2. Time as a value. 1988 is not a trivia fact; it is proof. Design should let age feel earned, not dated.
+2. Time as a value. 1983 is not a trivia fact; it is proof. Design should let age feel earned, not dated.
 3. The table is the destination. Every product ultimately ends up on someone's breakfast table. Keep that human warmth present in every touchpoint.
 4. Restraint over abundance. Artisanal means fewer, better things. No screen should feel like a supermarket shelf.
 5. Trust through texture. Handmade quality communicates through sensory detail: grain, warm color, organic shapes. Never plastic or glossy.

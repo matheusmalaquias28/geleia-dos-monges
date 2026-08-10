@@ -221,7 +221,7 @@ export default function Navbar() {
                   </span>
                 </Link>
                 <p className="mt-4 text-center font-sans text-[10px] uppercase tracking-[0.28em] text-cream/35">
-                  Campos do Jordão · desde 1988
+                  Campos do Jordão · desde 1983
                 </p>
               </div>
             </motion.div>

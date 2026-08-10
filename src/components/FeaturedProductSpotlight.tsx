@@ -1,10 +1,9 @@
 import AnimatedSection from './AnimatedSection';
-import { Product, categoryLabels } from '../data/products';
+import { Product } from '../data/products';
 
 const featuredProductImages: Record<string, string> = {
   'geleia-morango': '/geleia-morango-monges.png',
-  'geleia-amora': '/geleia-amora-monges.png',
-  'geleia-framboesa': '/geleia-framboesa-monges.png',
+  'geleia-laranja': '/geleia-damasco-monges.png',
 };
 
 interface FeaturedProductSpotlightProps {
@@ -18,7 +17,7 @@ export default function FeaturedProductSpotlight({ products, onSelect }: Feature
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <AnimatedSection className="mb-12 lg:mb-16">
           <span className="section-label mb-4 block">Destaques</span>
-          <h2 className="font-display text-4xl font-bold text-espresso md:text-5xl">Produtos em destaque</h2>
+          <h2 className="font-display text-4xl font-bold text-espresso md:text-5xl">Produtos</h2>
         </AnimatedSection>
 
         <div className="flex flex-col gap-10 lg:gap-14">
@@ -35,10 +34,6 @@ export default function FeaturedProductSpotlight({ products, onSelect }: Feature
               >
                 <AnimatedSection delay={0.05} direction={imageFirst ? 'right' : 'left'}>
                   <div className="flex h-full flex-col justify-center rounded-3xl bg-cream-dark px-8 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
-                    <span className="mb-5 inline-flex w-fit rounded-full border border-espresso/10 bg-cream px-3.5 py-1.5 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-burgundy-800">
-                      {categoryLabels[product.category]}
-                    </span>
-
                     <h3 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold uppercase leading-[1.08] tracking-tight text-espresso">
                       {product.name}
                     </h3>

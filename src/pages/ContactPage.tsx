@@ -332,7 +332,7 @@ export default function ContactPage() {
                     "Uma relação de compromisso."
                   </p>
                   <p className="font-sans text-xs tracking-[0.2em] uppercase text-amber-warm">
-                    — Geleia dos Monges, desde 1988
+                    — Geleia dos Monges, desde 1983
                   </p>
                 </div>
               </AnimatedSection>

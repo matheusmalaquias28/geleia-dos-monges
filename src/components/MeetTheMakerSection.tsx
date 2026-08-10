@@ -84,7 +84,7 @@ export default function MeetTheMakerSection() {
                 />
               </div>
               <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-espresso/55">
-                Fruitland · Campos do Jordão
+                Campos do Jordão
               </span>
             </div>
 

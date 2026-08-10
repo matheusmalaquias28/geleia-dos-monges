@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, MapPin, Phone, Mail, ArrowUpRight } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone } from 'lucide-react';
 
 const navLinks = [
   { label: 'Início', to: '/' },
@@ -8,14 +8,7 @@ const navLinks = [
   { label: 'Fale Conosco', to: '/contato' },
 ] as const;
 
-const categories = [
-  'Geleias',
-  'Geleias Diet',
-  'Doces',
-  'Conservas',
-  'Compotas',
-  'Marca Própria',
-] as const;
+const categories = ['Geleias', 'Doces', 'Conservas', 'Marcas próprias'] as const;
 
 export default function Footer() {
   return (
@@ -38,7 +31,7 @@ export default function Footer() {
         <div className="marquee-track whitespace-nowrap">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="font-body px-8 text-base italic text-cream/40">
-              Da fruta para a mesa &middot; Desde 1988 &middot; Serra da Mantiqueira &middot; Campos do Jordão
+              Da fruta para a mesa &middot; Desde 1983 &middot; Serra da Mantiqueira &middot; Campos do Jordão
               &middot;
             </span>
           ))}
@@ -56,7 +49,7 @@ export default function Footer() {
               <h3 className="font-display mt-1 text-4xl font-bold italic text-amber-warm sm:text-5xl">Monges</h3>
             </div>
             <p className="font-body max-w-sm text-lg leading-relaxed text-cream/55">
-              Da fruta para a mesa, uma relação de compromisso. Artesanal desde 1988.
+              Da fruta para a mesa, uma relação de compromisso. Artesanal desde 1983.
             </p>
             <div className="mt-8 flex flex-wrap gap-2">
               <a
@@ -136,11 +129,11 @@ export default function Footer() {
                   <MapPin size={16} strokeWidth={1.75} aria-hidden />
                 </span>
                 <p className="font-sans text-sm leading-relaxed text-cream/65">
-                  Rod. Floriano Rodrigues Pinheiro, Km 46
+                  Rua Julio Gonçalves Pinto, 211
                   <br />
-                  Campos do Jordão, SP
+                  Vila Izabela — Campos do Jordão, SP
                   <br />
-                  <span className="text-cream/45">CEP 12460-000</span>
+                  <span className="text-cream/45">CEP 12470-582</span>
                 </p>
               </div>
               <a
@@ -153,36 +146,23 @@ export default function Footer() {
                 (12) 3662-1346
               </a>
               <a
-                href="mailto:contato@geleiadosmonges.com.br"
-                className="group flex items-start gap-3 rounded-xl py-1 font-sans text-sm text-cream/70 transition-colors hover:text-cream"
+                href="https://wa.me/5511914727277"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl py-1 font-sans text-sm text-cream/70 transition-colors hover:text-cream"
               >
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-burgundy-800/40 text-amber-warm">
-                  <Mail size={16} strokeWidth={1.75} aria-hidden />
+                  <Phone size={16} strokeWidth={1.75} aria-hidden />
                 </span>
-                <span className="flex min-w-0 flex-1 items-center justify-between gap-2 break-all">
-                  contato@geleiadosmonges.com.br
-                  <ArrowUpRight
-                    size={14}
-                    className="shrink-0 text-cream/35 opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
-                    aria-hidden
-                  />
-                </span>
+                (11) 91472-7277
               </a>
             </div>
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-6 border-t border-white/[0.06] pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 border-t border-white/[0.06] pt-8">
           <p className="max-w-md font-sans text-xs leading-relaxed text-cream/35">
             &copy; {new Date().getFullYear()} Fruitland Com. e Ind. de Alimentos. Todos os direitos reservados.
-          </p>
-          <p className="font-sans text-xs tracking-wide text-cream/35">
-            <span className="text-cream/25">Exportamos para</span>{' '}
-            <span className="text-cream/50">França</span>
-            <span className="mx-2 text-cream/20">&middot;</span>
-            <span className="text-cream/50">EUA</span>
-            <span className="mx-2 text-cream/20">&middot;</span>
-            <span className="text-cream/50">Argentina</span>
           </p>
         </div>
       </div>

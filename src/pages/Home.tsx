@@ -13,7 +13,15 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const featuredProducts = products.filter((p) => p.featured).slice(0, 4);
+  const featuredIds = [
+    'geleia-morango',
+    'geleia-laranja',
+    'conserva-berinjela',
+    'fondant-leite',
+  ] as const;
+  const featuredProducts = featuredIds
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p): p is Product => Boolean(p));
 
   return (
     <>
@@ -37,7 +45,7 @@ export default function Home() {
               >
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-warm shadow-[0_0_12px_rgba(200,133,26,0.65)]" aria-hidden />
                 <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-cream/90">
-                  Campos do Jordão · desde 1988
+                  Campos do Jordão · desde 1983
                 </span>
               </motion.div>
 
@@ -49,7 +57,7 @@ export default function Home() {
               >
                 Da Serra da Mantiqueira
                 <span className="mt-1 block pb-1.5 italic">
-                  para a sua mesa
+                  para a sua mesa.
                 </span>
               </motion.h1>
 
@@ -57,7 +65,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.38 }}
-                className="font-body mx-auto mt-7 max-w-xl text-pretty text-lg leading-relaxed text-cream/85 md:text-xl"
+                className="font-display mx-auto mt-7 max-w-xl text-pretty text-lg leading-relaxed text-cream/85 md:text-xl"
               >
                 Geleias e doces artesanais na Serra da Mantiqueira, a 1.600 metros. Tradição,
                 esmero e o carinho de quem faz no próprio ritmo da montanha.
@@ -130,8 +138,9 @@ export default function Home() {
             </AnimatedSection>
             <AnimatedSection delay={0.1} className="mt-6">
               <p className="font-body max-w-xl text-lg leading-relaxed text-espresso/75 sm:text-xl">
-                A Fruitland nasceu em 1988 na Serra da Mantiqueira com o claro objetivo de encantar pelo
-                paladar. Inicialmente artesanal, onde o esmero e o capricho ditavam os caminhos.
+                A Fruitland nasceu em 1983 na Serra da Mantiqueira, detentora da marca Monges, com o claro
+                objetivo de encantar pelo paladar. Inicialmente artesanal, onde o esmero e o capricho
+                ditavam os caminhos.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.15} className="mt-5">
@@ -212,7 +221,7 @@ export default function Home() {
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.08} className="hidden shrink-0 lg:block">
-              <p className="max-w-xs text-right font-sans text-xs uppercase leading-relaxed tracking-[0.25em] text-cream/35">
+              <p className="whitespace-nowrap text-right font-sans text-xs uppercase tracking-[0.25em] text-cream/35">
                 Tradição · origem · exportação · afeto
               </p>
             </AnimatedSection>
@@ -224,25 +233,25 @@ export default function Home() {
                 num: '01',
                 icon: Mountain,
                 title: 'Serra da Mantiqueira',
-                text: 'Produzidos a 1.600 metros de altitude, onde o clima frio e o solo fértil garantem frutas de qualidade superior.',
+                text: 'Produzidos a 1.600 metros de altitude, no clima frio da cidade mais alta do Brasil.',
               },
               {
                 num: '02',
                 icon: Award,
-                title: 'Artesanal desde 1988',
-                text: 'Mais de 35 anos de tradição e esmero. O compromisso com a qualidade artesanal nunca mudou.',
+                title: 'Artesanal desde 1983',
+                text: 'Mais de 40 anos de tradição e esmero. O compromisso com a qualidade artesanal nunca mudou.',
               },
               {
                 num: '03',
                 icon: Globe,
                 title: 'Alcance Internacional',
-                text: 'Nossos sabores cruzam fronteiras. Exportamos para França, EUA e Argentina, levando o Brasil ao mundo.',
+                text: 'Nossos sabores cruzam fronteiras, levando o Brasil ao mundo.',
               },
               {
                 num: '04',
                 icon: Heart,
                 title: 'Feito com Carinho',
-                text: 'O esmero e o capricho de sempre. Cada pote reflete o cuidado de quem faz com amor e perseverança.',
+                text: 'Cada produto reflete o cuidado de quem faz com amor e perseverança.',
               },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 0.07}>
@@ -374,7 +383,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-[1.75rem] border border-cream/15 bg-cream/[0.07] p-8 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.55)] backdrop-blur-md sm:rounded-[2rem] sm:p-10 lg:grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:items-center lg:gap-12 lg:p-12 xl:p-14">
               <div className="text-left">
                 <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-cream/20 bg-espresso/25 px-3 py-1.5 font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-cream/80">
-                  Faça seu pedido
+                  Saiba Mais.
                 </span>
                 <h2 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-cream sm:text-5xl lg:text-[2.75rem] xl:text-5xl">
                   Leve o sabor da Mantiqueira{' '}
@@ -399,11 +408,13 @@ export default function Home() {
                   />
                 </Link>
                 <a
-                  href="tel:+551236621346"
+                  href="https://wa.me/5511914727277"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2.5 rounded-full border border-cream/35 bg-cream/[0.04] px-8 py-4 font-sans text-sm font-medium tabular-nums text-cream backdrop-blur-sm transition-colors hover:border-cream/50 hover:bg-cream/[0.09] sm:flex-1 lg:flex-none"
                 >
                   <Phone size={18} className="shrink-0 text-amber-warm" strokeWidth={1.75} aria-hidden />
-                  (12) 3662-1346
+                  (11) 91472-7277
                 </a>
               </div>
             </div>

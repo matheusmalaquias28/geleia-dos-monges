@@ -13,9 +13,11 @@ const tabs: { id: FilterTab; label: string }[] = [
   { id: 'all', label: 'Todos' },
   { id: 'geleias', label: 'Geleias' },
   { id: 'geleias-diet', label: 'Geleias Diet' },
-  { id: 'doces', label: 'Doces' },
+  { id: 'geleias-agridoces', label: 'Geleias Agridoces' },
+  { id: 'mini-potes', label: 'Mini-Potes' },
   { id: 'conservas', label: 'Conservas' },
-  { id: 'compotas', label: 'Compotas' },
+  { id: 'doces', label: 'Doces' },
+  { id: 'institucional', label: 'Institucional' },
   { id: 'marca-propria', label: 'Marca Própria' },
 ];
 
@@ -40,8 +42,8 @@ export default function ProductsPage() {
               Nossos Produtos
             </h1>
             <p className="font-body text-cream/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Geleias, doces, conservas e compotas produzidas com esmero
-              na Serra da Mantiqueira. Mais de 35 anos de tradição artesanal
+              Geleias, doces e conservas produzidas com esmero
+              na Serra da Mantiqueira. Mais de 40 anos de tradição artesanal
               em cada pote.
             </p>
           </AnimatedSection>
