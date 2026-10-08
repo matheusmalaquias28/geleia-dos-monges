@@ -25,7 +25,7 @@ const timelineItems = [
   {
     year: '2005',
     title: 'Escala e Inovação',
-    text: 'Novas tecnologias e produção em larga escala são incorporadas sem perder a essência artesanal. A linha de geleias atinge 11 sabores. Surgem linhas de conservas, doces e compotas.',
+    text: 'Novas tecnologias e produção em larga escala são incorporadas sem perder a essência artesanal. Surgem novos sabores e são introduzidas as linhas de conservas e doces.',
   },
   {
     year: '2010',
@@ -33,9 +33,9 @@ const timelineItems = [
     text: 'A qualidade é referendada pelos maiores hipermercados brasileiros. A Fruitland passa a produzir com a marca própria dos principais varejistas do país.',
   },
   {
-    year: '2015+',
+    year: '2015',
     title: 'Exportação Internacional',
-    text: 'Os sabores da Mantiqueira cruzam fronteiras. A Fruitland exporta para França, Estados Unidos e Argentina, levando o artesanato brasileiro ao mundo.',
+    text: 'Os sabores da Mantiqueira cruzam fronteiras. A Fruitland entra no mercado internacional, começando a fornecer seus produtos para empresas de catering aéreo, levando nossa geleia brasileira ao mundo.',
   },
 ];
 
@@ -48,7 +48,7 @@ export default function AboutPage() {
             className="absolute inset-0 bg-cover bg-no-repeat bg-[position:52%_center] sm:bg-center"
             style={{ backgroundImage: "url('/hero-fachada.png')" }}
           />
-          <div className="absolute inset-0 bg-espresso/50" />
+          <div className="absolute inset-0 bg-espresso/70" />
         </div>
 
         <div className="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center px-6 py-28 text-center sm:px-8 lg:px-12 xl:px-16">
@@ -75,10 +75,10 @@ export default function AboutPage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.35, ease }}
-              className="font-body mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream/65 sm:text-xl"
+              className="font-body mx-auto mt-6 max-w-2xl text-xl leading-relaxed text-cream/65 sm:text-2xl"
             >
               Nascemos em 1983 na Serra da Mantiqueira com um objetivo simples e poderoso: encantar pelo paladar.
-              Mais de 35 anos depois, esse compromisso continua vivo em cada pote.
+              Mais de 40 anos depois, esse compromisso continua vivo em cada pote.
             </motion.p>
 
             <motion.div
@@ -129,6 +129,10 @@ export default function AboutPage() {
                 Hoje, produzimos diversos sabores de geleias, além de doces e conservas. Produzimos marca própria
                 para os maiores hipermercados do Brasil.
               </p>
+              <p>
+                Nossa empresa é detentora da marca Geleia dos Monges, contudo acreditamos ser relevante informar
+                que somos uma empresa laica.
+              </p>
             </div>
           </AnimatedSection>
 
@@ -157,17 +161,26 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-            <AnimatedSection delay={0.05} className="lg:col-span-7">
-              <AboutImagePlaceholder
-                src="/historia-fachada.png"
-                label="Fachada histórica"
-                caption="A casa original da Geleia dos Monges em Campos do Jordão."
-                alt="Fachada histórica da Geleia dos Monges"
-                aspect="aspect-[16/10] lg:aspect-[16/9]"
-              />
-            </AnimatedSection>
-            <div className="grid gap-6 lg:col-span-5">
+            <div className="grid gap-6 lg:col-span-7">
+              <AnimatedSection delay={0.05}>
+                <AboutImagePlaceholder
+                  src="/historia-fachada.png"
+                  label="Fachada histórica"
+                  caption="A casa original da Geleia dos Monges em Campos do Jordão."
+                  alt="Fachada histórica da Geleia dos Monges"
+                  aspect="aspect-[16/10] lg:aspect-[16/9]"
+                />
+              </AnimatedSection>
               <AnimatedSection delay={0.1}>
+                <AboutImagePlaceholder
+                  label="Em breve"
+                  caption="A fachada da nossa fábrica atual, na Serra da Mantiqueira."
+                  aspect="aspect-[16/10] lg:aspect-[16/9]"
+                />
+              </AnimatedSection>
+            </div>
+            <div className="grid gap-6 lg:col-span-5">
+              <AnimatedSection delay={0.15}>
                 <AboutImagePlaceholder
                   src="/historia-producao.png"
                   label="Produção artesanal"
@@ -176,7 +189,7 @@ export default function AboutPage() {
                   aspect="aspect-[4/3]"
                 />
               </AnimatedSection>
-              <AnimatedSection delay={0.16}>
+              <AnimatedSection delay={0.2}>
                 <AboutImagePlaceholder
                   src="/historia-rotulagem.png"
                   label="Cuidado em cada pote"
