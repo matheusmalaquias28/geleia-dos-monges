@@ -1,9 +1,21 @@
 import AnimatedSection from './AnimatedSection';
 import { Product } from '../data/products';
 
-const featuredProductImages: Record<string, string> = {
-  'geleia-morango': '/geleia-morango-monges.png',
-  'geleia-laranja': '/geleia-damasco-monges.png',
+// Título e foto de destaque próprios da Home; o restante vem do catálogo.
+const spotlight: Record<string, { title?: string; image?: string }> = {
+  'tradicional-morango': {
+    title: 'Geleia de Morango Artesanal com Pedaços de Fruta',
+    image: '/geleia-morango-monges.png',
+  },
+  'tradicional-laranja': {
+    title: 'Geleia de Laranja com Pedaços de Casca',
+    image: '/geleia-damasco-monges.png',
+  },
+  'conserva-berinjela-siciliana': {
+    title: 'Conserva de Berinjela Siciliana',
+    image: '/berinjela-siciliana-monges.jpg',
+  },
+  'doce-fondant': { title: 'Fondant de Leite', image: '/fondant-de-leite-monges.jpg' },
 };
 
 interface FeaturedProductSpotlightProps {
@@ -22,7 +34,8 @@ export default function FeaturedProductSpotlight({ products, onSelect }: Feature
 
         <div className="flex flex-col gap-10 lg:gap-14">
           {products.map((product, index) => {
-            const imageSrc = featuredProductImages[product.id];
+            const imageSrc = spotlight[product.id]?.image;
+            const title = spotlight[product.id]?.title ?? product.name;
             const imageFirst = index % 2 === 1;
 
             return (
@@ -35,7 +48,7 @@ export default function FeaturedProductSpotlight({ products, onSelect }: Feature
                 <AnimatedSection delay={0.05} direction={imageFirst ? 'right' : 'left'}>
                   <div className="flex h-full flex-col justify-center rounded-3xl bg-cream-dark px-8 py-10 sm:px-10 sm:py-12 lg:px-12 lg:py-14">
                     <h3 className="font-display text-[clamp(1.75rem,4vw,2.75rem)] font-bold uppercase leading-[1.08] tracking-tight text-espresso">
-                      {product.name}
+                      {title}
                     </h3>
 
                     <p className="font-body mt-5 max-w-xl text-pretty text-lg leading-relaxed text-espresso/75 md:text-xl">

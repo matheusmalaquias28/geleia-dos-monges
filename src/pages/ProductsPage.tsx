@@ -5,20 +5,13 @@ import { ShoppingBag } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import ProductCard from '../components/ProductCard';
 import ProductModal from '../components/ProductModal';
-import { products, Product, ProductCategory, categoryLabels } from '../data/products';
+import { products, Product, ProductCategory, categoryLabels, categoryOrder } from '../data/products';
 
 type FilterTab = 'all' | ProductCategory;
 
 const tabs: { id: FilterTab; label: string }[] = [
   { id: 'all', label: 'Todos' },
-  { id: 'geleias', label: 'Geleias' },
-  { id: 'geleias-diet', label: 'Geleias Diet' },
-  { id: 'geleias-agridoces', label: 'Geleias Agridoces' },
-  { id: 'mini-potes', label: 'Mini-Potes' },
-  { id: 'conservas', label: 'Conservas' },
-  { id: 'doces', label: 'Doces' },
-  { id: 'institucional', label: 'Institucional' },
-  { id: 'marca-propria', label: 'Marca Própria' },
+  ...categoryOrder.map((id) => ({ id, label: categoryLabels[id] })),
 ];
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
@@ -27,7 +20,7 @@ export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState<FilterTab>('all');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  const filtered = activeTab === 'all' ? products : products.filter((p) => p.category === activeTab);
+  const visibleCategories = activeTab === 'all' ? categoryOrder : [activeTab];
   const countByCategory = (cat: FilterTab) =>
     cat === 'all' ? products.length : products.filter((p) => p.category === cat).length;
 
@@ -80,11 +73,6 @@ export default function ProductsPage() {
       {/* Products Grid */}
       <section className="py-16 bg-cream-dark min-h-[60vh]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="font-sans text-sm text-espresso/40 mb-8">
-            {filtered.length} produto{filtered.length !== 1 ? 's' : ''}
-            {activeTab !== 'all' && ` em ${categoryLabels[activeTab as ProductCategory]}`}
-          </p>
-
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -92,11 +80,31 @@ export default function ProductsPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3, ease }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+              className="flex flex-col gap-16"
             >
-              {filtered.map((product) => (
-                <ProductCard key={product.id} product={product} onClick={setSelectedProduct} />
-              ))}
+              {visibleCategories.map((category) => {
+                const items = products.filter((p) => p.category === category);
+                return (
+                  <section key={category} aria-labelledby={`categoria-${category}`}>
+                    <div className="mb-6 flex items-baseline justify-between gap-4 border-b border-espresso/10 pb-3">
+                      <h2
+                        id={`categoria-${category}`}
+                        className="font-display text-2xl font-bold text-espresso md:text-3xl"
+                      >
+                        {categoryLabels[category]}
+                      </h2>
+                      <span className="flex-shrink-0 font-sans text-sm text-espresso/40">
+                        {items.length} produto{items.length !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4">
+                      {items.map((product) => (
+                        <ProductCard key={product.id} product={product} onClick={setSelectedProduct} />
+                      ))}
+                    </div>
+                  </section>
+                );
+              })}
             </motion.div>
           </AnimatePresence>
         </div>

@@ -173,8 +173,10 @@ export default function AboutPage() {
               </AnimatedSection>
               <AnimatedSection delay={0.1}>
                 <AboutImagePlaceholder
-                  label="Em breve"
+                  src="/historia-fabrica.jpg"
+                  label="Nossa fábrica"
                   caption="A fachada da nossa fábrica atual, na Serra da Mantiqueira."
+                  alt="Fachada da fábrica da Geleia dos Monges com o mural da igreja e o letreiro pintado na parede"
                   aspect="aspect-[16/10] lg:aspect-[16/9]"
                 />
               </AnimatedSection>

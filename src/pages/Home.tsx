@@ -14,10 +14,10 @@ const ease = [0.25, 0.46, 0.45, 0.94] as const;
 export default function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const featuredIds = [
-    'geleia-morango',
-    'geleia-laranja',
-    'conserva-berinjela',
-    'fondant-leite',
+    'tradicional-morango',
+    'tradicional-laranja',
+    'conserva-berinjela-siciliana',
+    'doce-fondant',
   ] as const;
   const featuredProducts = featuredIds
     .map((id) => products.find((p) => p.id === id))
@@ -35,7 +35,8 @@ export default function Home() {
           <div className="absolute inset-0 bg-espresso/50" />
         </div>
 
-        <div className="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center px-6 pb-28 pt-28 text-center sm:px-8 lg:px-12 xl:px-16">
+        {/* O padding inferior reserva o espaço do -mt-[20dvh] do HeroImageCarousel, que sobe sobre a hero. */}
+        <div className="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center px-6 pb-[calc(20dvh+2.5rem)] pt-28 text-center sm:px-8 lg:px-12 xl:px-16">
           <div className="mx-auto min-w-0 max-w-4xl drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}

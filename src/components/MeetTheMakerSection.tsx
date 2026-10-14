@@ -16,12 +16,6 @@ const STRIP_IMAGES: { file: string; alt: string }[] = [
   { file: 'geleia-21.png', alt: 'Linha de geleias artesanais' },
   { file: 'Slide 16_9 - 2.jpg', alt: 'Fruitland' },
   { file: 'img-hero-bg-mobile.png', alt: 'Geleias e produtos' },
-  { file: 'orbit/morango.png', alt: 'Morango' },
-  { file: 'orbit/banana.png', alt: 'Banana' },
-  { file: 'orbit/abacaxi.png', alt: 'Abacaxi' },
-  { file: 'orbit/framboesa.png', alt: 'Framboesa' },
-  { file: 'orbit/damasco.png', alt: 'Damasco' },
-  { file: 'orbit/laranja.png', alt: 'Laranja' },
 ];
 
 export default function MeetTheMakerSection() {
