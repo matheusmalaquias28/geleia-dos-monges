@@ -1,27 +1,53 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  { src: '/geleia-framboesa-monges.png', alt: 'Geleia de Framboesa Monges — Campos do Jordão' },
-  { src: '/geleia-goiaba-diet-monges.png', alt: 'Geleia de Goiaba Diet — Geleia dos Monges' },
-  { src: '/geleia-morango-monges.png', alt: 'Geleia de Morango Monges — Campos do Jordão' },
-  { src: '/geleia-amora-monges.png', alt: 'Geleia de Amora — Campos do Jordão' },
-  { src: '/geleia-damasco-monges.png', alt: 'Geleia de Damasco Monges — Campos do Jordão' },
+  { src: '/carrossel/geleia-framboesa.webp', alt: 'Geleia de Framboesa Monges — Campos do Jordão' },
+  { src: '/carrossel/geleia-goiaba.webp', alt: 'Geleia de Goiaba Monges — Campos do Jordão' },
+  { src: '/carrossel/geleia-morango.webp', alt: 'Geleia de Morango Monges — Campos do Jordão' },
+  { src: '/carrossel/geleia-amora.webp', alt: 'Geleia de Amora Monges — Campos do Jordão' },
+  { src: '/carrossel/geleia-damasco.webp', alt: 'Geleia de Damasco Monges — Campos do Jordão' },
 ] as const;
 
 const n = slides.length;
 
+/** Tablet (md) mostra 2 imagens por vez; celular, 1. */
+const tabletQuery = '(min-width: 768px)';
+
+function usePerView() {
+  const [perView, setPerView] = useState(() =>
+    typeof window !== 'undefined' && window.matchMedia(tabletQuery).matches ? 2 : 1,
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(tabletQuery);
+    const update = () => setPerView(mql.matches ? 2 : 1);
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, []);
+
+  return perView;
+}
+
 export default function HeroImageCarousel() {
-  const [index, setIndex] = useState(0);
+  const perView = usePerView();
+  const positions = n - perView + 1;
+  const [rawIndex, setIndex] = useState(0);
+  // Ao passar de celular para tablet, a última posição deixa de existir.
+  const index = Math.min(rawIndex, positions - 1);
 
   const prev = useCallback(() => {
-    setIndex((i) => (i - 1 + n) % n);
-  }, []);
+    setIndex((index - 1 + positions) % positions);
+  }, [index, positions]);
 
   const next = useCallback(() => {
-    setIndex((i) => (i + 1) % n);
-  }, []);
+    setIndex((index + 1) % positions);
+  }, [index, positions]);
+
+  const pad = (v: number) => String(v).padStart(2, '0');
+  const visible = perView === 1 ? pad(index + 1) : `${pad(index + 1)}–${pad(index + perView)}`;
+  const counter = `${visible} / ${pad(n)}`;
 
   return (
     <section
@@ -30,7 +56,7 @@ export default function HeroImageCarousel() {
       aria-label="Destaques em imagens"
     >
       <div className="relative h-[450px] w-full lg:h-[450px]">
-        {/* Controles — só mobile (um slide por vez) */}
+        {/* Controles — celular e tablet */}
         <div className="absolute right-4 top-4 z-30 flex items-center gap-1 sm:right-6 sm:top-5 lg:hidden">
           <button
             type="button"
@@ -41,7 +67,7 @@ export default function HeroImageCarousel() {
             <ChevronLeft size={20} strokeWidth={1.75} aria-hidden />
           </button>
           <span className="min-w-[3.25rem] select-none text-center font-sans text-xs font-medium tabular-nums tracking-wide text-cream/90 drop-shadow-md">
-            {String(index + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}
+            {counter}
           </span>
           <button
             type="button"
@@ -53,31 +79,33 @@ export default function HeroImageCarousel() {
           </button>
         </div>
 
-        {/* Mobile: carrossel 1 slide */}
-        <div className="h-full w-full overflow-hidden lg:hidden">
+        {/* Celular: 1 slide por vez · Tablet: 2 */}
+        <div className="h-full w-full overflow-hidden md:px-[5px] lg:hidden">
           <motion.div
             className="flex h-full"
-            style={{ width: `${n * 100}%` }}
+            style={{ width: `${(n * 100) / perView}%` }}
             animate={{ x: `${-(index / n) * 100}%` }}
             transition={{ type: 'spring', stiffness: 320, damping: 36 }}
           >
             {slides.map((slide) => (
               <div
                 key={slide.src}
-                className="group relative h-[450px] shrink-0 overflow-hidden"
+                className="h-[450px] shrink-0 md:px-[5px]"
                 style={{ width: `${100 / n}%` }}
               >
-                <img
-                  src={slide.src}
-                  alt={slide.alt}
-                  className="h-full w-full origin-center object-cover transition-transform duration-700 ease-out will-change-transform motion-safe:group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-                  loading={slide.src === slides[0].src ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/15"
-                  aria-hidden
-                />
+                <div className="group relative h-full overflow-hidden">
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    className="h-full w-full origin-center object-cover transition-transform duration-700 ease-out will-change-transform motion-safe:group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                    loading={slide.src === slides[0].src ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/15"
+                    aria-hidden
+                  />
+                </div>
               </div>
             ))}
           </motion.div>

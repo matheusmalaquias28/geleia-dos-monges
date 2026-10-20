@@ -408,7 +408,10 @@ const classic = ['Amora', 'Frutas Vermelhas', 'Laranja', 'Morango'].map((flavor)
 // 8. GELEIAS VIVER — gramaturas não informadas
 const viverImages: Record<string, string> = {
   Amora: imgV3('geleia-de-amora-viver-200g'),
+  Damasco: imgV4('geleia-de-damasco-viver-200g'),
   'Frutas Vermelhas': imgV3('geleia-de-frutas-vermelhas-viver-200g'),
+  Goiaba: imgV4('geleia-de-goiaba-viver-200g'),
+  Laranja: imgV4('geleia-de-laranja-viver-200g'),
 };
 
 const viver = ['Amora', 'Damasco', 'Frutas Vermelhas', 'Goiaba', 'Laranja'].map((flavor) =>
