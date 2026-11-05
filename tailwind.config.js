@@ -33,6 +33,8 @@ export default {
           darker:  '#DDD2B8',
         },
         espresso: '#1A0C08',
+        /** Verde do logotipo Geleia dos Monges. */
+        monges: '#004438',
       },
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],

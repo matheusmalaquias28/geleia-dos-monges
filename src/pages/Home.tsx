@@ -30,19 +30,19 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0" aria-hidden>
           <div
             className="absolute inset-0 bg-cover bg-no-repeat bg-[position:52%_center] sm:bg-center"
-            style={{ backgroundImage: "url('/hero-fachada.png')" }}
+            style={{ backgroundImage: "url('/hero-fachada-monges.webp')" }}
           />
           <div className="absolute inset-0 bg-espresso/50" />
         </div>
 
         {/* O padding inferior reserva o espaço do -mt-[20dvh] do HeroImageCarousel, que sobe sobre a hero. */}
-        <div className="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-center px-6 pb-[calc(20dvh+2.5rem)] pt-28 text-center sm:px-8 lg:px-12 xl:px-16">
+        <div className="relative z-10 flex min-h-[100dvh] w-full flex-col items-center justify-end px-6 pb-[calc(20dvh+1.75rem)] pt-28 text-center sm:px-8 lg:px-12 xl:px-16">
           <div className="mx-auto min-w-0 max-w-4xl drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.1 }}
-                className="mb-8 inline-flex items-center gap-3 rounded-full border border-cream/20 bg-cream/[0.12] px-4 py-2 backdrop-blur-md"
+                className="mb-4 inline-flex items-center gap-3 rounded-full border border-cream/20 bg-cream/[0.12] px-4 py-2 backdrop-blur-md"
               >
                 <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-warm shadow-[0_0_12px_rgba(200,133,26,0.65)]" aria-hidden />
                 <span className="font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-cream/90">
@@ -66,9 +66,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.38 }}
-                className="font-display mx-auto mt-7 max-w-xl text-pretty text-lg leading-relaxed text-cream/85 md:text-xl"
+                className="font-display mx-auto mt-3 max-w-xl text-pretty text-lg leading-relaxed text-cream/85 md:text-xl"
               >
-                Geleias e doces artesanais na Serra da Mantiqueira, a 1.600 metros. Tradição,
+                Geleias e doces artesanais produzidos a 1.600 m de altitude, na Serra da Mantiqueira. Tradição,
                 esmero e o carinho de quem faz no próprio ritmo da montanha.
               </motion.p>
 
@@ -76,7 +76,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.5 }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+                className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
               >
                 <Link to="/produtos" className="btn-primary shadow-lg shadow-black/25">
                   <span>Explorar produtos</span>

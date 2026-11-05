@@ -5,11 +5,11 @@ import { Product } from '../data/products';
 const spotlight: Record<string, { title?: string; image?: string }> = {
   'tradicional-morango': {
     title: 'Geleia de Morango Artesanal com Pedaços de Fruta',
-    image: '/geleia-morango-monges.png',
+    image: '/carrossel/geleia-morango.webp',
   },
   'tradicional-laranja': {
     title: 'Geleia de Laranja com Pedaços de Casca',
-    image: '/geleia-damasco-monges.png',
+    image: '/geleia-laranja-monges.webp',
   },
   'conserva-berinjela-siciliana': {
     title: 'Conserva de Berinjela Siciliana',

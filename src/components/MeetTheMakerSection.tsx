@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { publicUrl } from '../lib/publicUrl';
+import BrandLogo from './BrandLogo';
 
 /** Vídeo em loop (`public/maker/maker-loop.mp4`). */
 const MAKER_VIDEO_FILE = 'maker/maker-loop.mp4';
@@ -68,15 +69,7 @@ export default function MeetTheMakerSection() {
 
           <div className="flex min-w-0 flex-col justify-center lg:py-4">
             <div className="mb-6 flex items-center gap-4">
-              <div className="h-14 w-14 shrink-0 overflow-hidden rounded-full border border-espresso/10 bg-cream-dark shadow-sm ring-2 ring-white">
-                <img
-                  src={publicUrl('logo-geleia-dos-monges.svg')}
-                  alt=""
-                  className="h-full w-full scale-90 object-contain p-1.5"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              <BrandLogo label="" className="h-16 text-monges" />
               <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.28em] text-espresso/55">
                 Campos do Jordão
               </span>

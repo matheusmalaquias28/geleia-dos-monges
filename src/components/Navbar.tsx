@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronRight } from 'lucide-react';
 import NavbarWeather from './NavbarWeather';
+import BrandLogo from './BrandLogo';
 
 const navLinks = [
   { label: 'Início', to: '/' },
@@ -44,21 +45,13 @@ export default function Navbar() {
         }`}
       >
         <div className="mx-auto flex h-20 w-full max-w-[1800px] items-center justify-between gap-3 px-5 sm:px-8 md:h-[4.75rem] md:gap-6 lg:px-12 xl:px-16 2xl:px-20">
-          <Link to="/" className="group shrink-0 flex flex-col leading-none">
-            <span
-              className={`font-sans text-[10px] font-medium uppercase tracking-[0.28em] transition-colors duration-300 sm:text-xs ${
-                scrolled ? 'text-espresso/50' : 'text-cream/65'
+          <Link to="/" className="group shrink-0" aria-label="Geleia dos Monges — página inicial">
+            <BrandLogo
+              label=""
+              className={`block h-14 transition-[color,transform] duration-300 group-hover:scale-[1.03] md:h-16 ${
+                scrolled ? 'text-monges' : 'text-cream'
               }`}
-            >
-              Geleia dos
-            </span>
-            <span
-              className={`font-display text-2xl font-bold italic transition-colors duration-300 sm:text-[1.65rem] ${
-                scrolled ? 'text-amber-warm' : 'text-cream group-hover:text-cream'
-              }`}
-            >
-              Monges
-            </span>
+            />
           </Link>
 
           {/* Desktop: navegação central em pill */}
@@ -154,11 +147,11 @@ export default function Navbar() {
               aria-label="Menu de navegacao"
             >
               <div className="flex items-center justify-between gap-4 border-b border-white/10 px-5 py-5 pt-[max(1.25rem,env(safe-area-inset-top))]">
-                <div>
+                <div className="flex items-center gap-3">
+                  <BrandLogo className="h-14 text-cream" />
                   <p className="font-sans text-[10px] font-medium uppercase tracking-[0.32em] text-cream/45">
-                    Navegacao
+                    Navegação
                   </p>
-                  <p className="font-display text-xl font-bold italic text-amber-warm">Monges</p>
                 </div>
                 <button
                   type="button"

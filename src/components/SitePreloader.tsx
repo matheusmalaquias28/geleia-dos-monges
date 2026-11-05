@@ -3,8 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 
-const MIN_VIDEO_MS = 2200;
-const MIN_SIMPLE_MS = 900;
+/** Os vídeos têm ~4 s: 3,4 s + o fade de saída deixam a animação quase inteira à mostra. */
+const MIN_VIDEO_MS = 3400;
+const MIN_SIMPLE_MS = 1300;
 const MAX_MS = 15000;
 
 type PreloaderVariant = 'video-desktop' | 'video-mobile' | 'simple';

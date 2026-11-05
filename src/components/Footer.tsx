@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, MapPin, Phone } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 const navLinks = [
   { label: 'Início', to: '/' },
@@ -42,12 +43,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-10 xl:gap-14">
           {/* Marca */}
           <div className="lg:col-span-4">
-            <div className="mb-8">
-              <p className="font-sans text-[10px] font-medium uppercase tracking-[0.35em] text-cream/45">
-                Geleia dos
-              </p>
-              <h3 className="font-display mt-1 text-4xl font-bold italic text-amber-warm sm:text-5xl">Monges</h3>
-            </div>
+            <Link to="/" className="mb-8 inline-block" aria-label="Geleia dos Monges — página inicial">
+              <BrandLogo label="" className="block w-40 text-cream sm:w-44" />
+            </Link>
             <p className="font-body max-w-sm text-lg leading-relaxed text-cream/55">
               Da fruta para a mesa, uma relação de compromisso. Artesanal desde 1983.
             </p>
